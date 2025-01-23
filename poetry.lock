@@ -716,13 +716,13 @@ files = [
 
 [[package]]
 name = "executing"
-version = "2.1.0"
+version = "2.2.0"
 description = "Get the currently executing AST node of a frame, and other information"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "executing-2.1.0-py2.py3-none-any.whl", hash = "sha256:8d63781349375b5ebccc3142f4b30350c0cd9c79f921cde38be2be4637e98eaf"},
-    {file = "executing-2.1.0.tar.gz", hash = "sha256:8ea27ddd260da8150fa5a708269c4a10e76161e2496ec3e587da9e3c0fe4b9ab"},
+    {file = "executing-2.2.0-py2.py3-none-any.whl", hash = "sha256:11387150cad388d62750327a53d3339fad4888b39a6fe233c3afbb54ecffd3aa"},
+    {file = "executing-2.2.0.tar.gz", hash = "sha256:5d108c028108fe2551d1a7b2e8b713341e2cb4fc0aa7dcf966fa4327a5226755"},
 ]
 
 [package.extras]
@@ -1235,13 +1235,13 @@ test = ["click", "pre-commit", "pytest (>=7.0)", "pytest-asyncio (>=0.19.0)", "p
 
 [[package]]
 name = "jupyter-jchannel"
-version = "0.3.0"
+version = "0.3.1"
 description = "Simple asynchronous RPC framework for Jupyter Notebooks. Facilitates calling JavaScript frontend code from Python kernel code and vice-versa."
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "jupyter_jchannel-0.3.0-py3-none-any.whl", hash = "sha256:e89ded470cf3a92f431e563ceb5dc7287e519340497a1509a5343a58a489f009"},
-    {file = "jupyter_jchannel-0.3.0.tar.gz", hash = "sha256:528fe23b0efbc0d963b2ecc29bb841696fcc42b6d8027487580d64512a4650b1"},
+    {file = "jupyter_jchannel-0.3.1-py3-none-any.whl", hash = "sha256:e2ad44ee1f46137223de452b993e39a3452ec758d060be1017e8147d64ac8579"},
+    {file = "jupyter_jchannel-0.3.1.tar.gz", hash = "sha256:078183b03358ecb25c08443d67a34e6162d89cf08f59731b124dd8e33c6510dd"},
 ]
 
 [package.dependencies]
@@ -3060,4 +3060,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "3b1f625714d3080a0035501b12e4065655b417f56d72ac4dfeb8db4be1363d41"
+content-hash = "060228c9e3e43c62f22bbde09f7f5eb5263e265462e8f656678efeaf8bf11277"

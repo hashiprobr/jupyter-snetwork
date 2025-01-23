@@ -1,4 +1,4 @@
-# Copyright (c) 2024 Marcelo Hashimoto
+# Copyright (c) 2025 Marcelo Hashimoto
 #
 # This program and the accompanying materials are made
 # available under the terms of the Eclipse Public License 2.0
