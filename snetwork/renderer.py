@@ -85,6 +85,6 @@ class Renderer:
         await self._channel.open(self._timeout)
 
     async def _stop(self) -> None:
-        await self._channel.call('close')
-        await self._channel.close()
+        await self._channel.call('close', timeout=self._timeout)
+        await self._channel.close(self._timeout)
         await self._server.stop()
