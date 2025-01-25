@@ -11,7 +11,7 @@ from jchannel.server import Server
 from snetwork.renderer import Renderer
 
 
-async def start(host='localhost', port=8889, url=None, heartbeat=30, timeout=3) -> Renderer:
+async def start(host='localhost', port=8889, url: str | None = None, heartbeat=30, timeout=3) -> Renderer:
     server = Server(host, port, url, heartbeat)
     renderer = Renderer(server, timeout)
     await renderer._start()

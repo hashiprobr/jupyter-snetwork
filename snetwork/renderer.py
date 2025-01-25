@@ -11,8 +11,9 @@ import os
 import asyncio
 
 from importlib import metadata
-from jchannel.channel import Channel
 from jchannel.server import Server
+from jchannel.channel import Channel
+from snetwork.handler import Handler
 
 
 class Renderer:
@@ -30,40 +31,47 @@ class Renderer:
 
         code = f'''
             (channel) => {{
-                function loaded(name, url) {{
-                    return new Promise((resolve, reject) => {{
-                        const script = document.createElement('script');
-
-                        script.addEventListener('load', () => {{
-                            resolve();
-                        }});
-
-                        script.addEventListener('error', (event) => {{
-                            console.error(event);
-
-                            reject(`Could not load ${{name}}`);
-                        }});
-
-                        script.src = url;
-
-                        document.head.appendChild(script);
-                    }});
-                }}
-
-                if (!self.pixijsLoaded) {{
-                    self.pixijsLoaded = loaded('PixiJS', 'https://pixijs.download/v8.7.0/pixi.min.js');
-                }}
-
                 if (!self.snetworkLoaded) {{
-                    self.snetworkLoaded = self.pixijsLoaded.then(() => loaded('snetwork-client', '{url}'));
+                    function load(name, url) {{
+                        return new Promise((resolve, reject) => {{
+                            const script = document.createElement('script');
+
+                            script.addEventListener('load', () => {{
+                                resolve();
+                            }});
+
+                            script.addEventListener('error', (event) => {{
+                                console.error(event);
+
+                                reject(`Could not load ${{name}}`);
+                            }});
+
+                            script.src = url;
+
+                            document.head.appendChild(script);
+                        }});
+                    }}
+
+                    if (!self.pixijsLoaded) {{
+                        self.pixijsLoaded = load('PixiJS', 'https://pixijs.download/v8.7.2/pixi.min.js');
+                    }}
+
+                    self.snetworkLoaded = self.pixijsLoaded.then(() => load('snetwork-client', '{url}'));
                 }}
 
-                return self.snetworkLoaded;
+                return self.snetworkLoaded.then(() => {{
+                    const renderer = snetwork.start({id(self)});
+
+                    renderer.open(channel);
+                }});
             }}
         '''
 
+        channel = Channel(server, code)
+        channel.handler = Handler()
+
         self._server = server
-        self._channel = Channel(server, code)
+        self._channel = channel
         self._timeout = timeout
 
     def start(self) -> asyncio.Task:
@@ -77,5 +85,6 @@ class Renderer:
         await self._channel.open(self._timeout)
 
     async def _stop(self) -> None:
+        await self._channel.call('close')
         await self._channel.close()
         await self._server.stop()
