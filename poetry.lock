@@ -1235,13 +1235,13 @@ test = ["click", "pre-commit", "pytest (>=7.0)", "pytest-asyncio (>=0.19.0)", "p
 
 [[package]]
 name = "jupyter-jchannel"
-version = "0.3.7"
+version = "0.3.8"
 description = "Simple asynchronous RPC framework for Jupyter Notebooks. Facilitates calling JavaScript frontend code from Python kernel code and vice-versa."
 optional = false
 python-versions = "<4.0,>=3.11"
 files = [
-    {file = "jupyter_jchannel-0.3.7-py3-none-any.whl", hash = "sha256:e8eee3b80796d9b835519a690223079ef0683ee6c0397b3ce74f7c8da9348ca0"},
-    {file = "jupyter_jchannel-0.3.7.tar.gz", hash = "sha256:f7932d0fb3db9cbbf8eda0107c58db4836ab353acf8045b398e0d3d4be88987b"},
+    {file = "jupyter_jchannel-0.3.8-py3-none-any.whl", hash = "sha256:a4070759f13338cc35d5ab7f7a06e32cddfbb1fdf28a8ee9138d638895b49929"},
+    {file = "jupyter_jchannel-0.3.8.tar.gz", hash = "sha256:f51fd3b1de15c14680f858aea51ba915c0bf312a907b61fc3d78c031627f4e88"},
 ]
 
 [package.dependencies]
@@ -3060,4 +3060,4 @@ propcache = ">=0.2.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.11"
-content-hash = "a6bc484584962494afb78783ce110a91f647bcb718363850f67eb77d3fb9555c"
+content-hash = "a5b3d76b388af994c9bd7bbc9462f34de135bb854b2d1e3371dc3a9811d91755"

@@ -13,7 +13,7 @@ packages = [
 
 [tool.poetry.dependencies]
 python = "^3.11"
-jupyter-jchannel = "~0.3.7"
+jupyter-jchannel = "~0.3.8"
 
 [tool.poetry.group.dev.dependencies]
 nbclassic = "^1.2.0"
